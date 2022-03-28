@@ -17,6 +17,7 @@ public class AdministratorsDAO implements DAO{
             var result = stm.executeQuery("select * from Adminstrators where id="+id);
             result.next();
             administrator=getAdministrator(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry, can't get this admin");
         }
@@ -30,6 +31,7 @@ public class AdministratorsDAO implements DAO{
             while(result.next()){
                 administratorsList.add(getAdministrator(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry , some problem occurred");
         }

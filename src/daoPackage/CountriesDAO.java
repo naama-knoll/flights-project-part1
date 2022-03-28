@@ -18,6 +18,7 @@ public class CountriesDAO implements DAO{
             var result = stm.executeQuery("select * from Countries where id="+id);
             result.next();
             country=getCountry(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry, can't get this country");
         }
@@ -31,6 +32,7 @@ public class CountriesDAO implements DAO{
             while(result.next()){
                 countryList.add(getCountry(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry , some problem occurred");
         }

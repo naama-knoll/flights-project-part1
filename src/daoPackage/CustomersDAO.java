@@ -19,6 +19,7 @@ public class CustomersDAO implements DAO{
             var result = stm.executeQuery("select * from Customers where id="+id);
             result.next();
             customer=getCustomer(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry, can't get this customer");
         }
@@ -32,6 +33,7 @@ public class CustomersDAO implements DAO{
             while(result.next()){
                 customerList.add(getCustomer(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry , some problem occurred");
         }

@@ -18,6 +18,7 @@ public class AirlineCompaniesDAO implements DAO{
             var result = stm.executeQuery("select * from Airline_Companies where id="+id);
             result.next();
             airlineCompany=getAirlineCompany(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry, can't get this airline company");
         }
@@ -31,6 +32,7 @@ public class AirlineCompaniesDAO implements DAO{
             while(result.next()){
                 airlineCompanyList.add(getAirlineCompany(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry , some problem occurred");
         }

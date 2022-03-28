@@ -72,4 +72,8 @@ public abstract class FacadeBase {
         }
         return true;
     }
+
+    public static void printError(String action,String user){
+        System.out.println("sorry "+action + " this "+user+" failed");
+    }
 }

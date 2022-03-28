@@ -18,6 +18,7 @@ public class TicketsDAO implements DAO{
             var result=stm.executeQuery("select * from Tickets where id="+id);
             result.next();
             ticket=getTicket(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry can't get the ticket");
         }
@@ -31,6 +32,7 @@ public class TicketsDAO implements DAO{
             while(result.next()){
                 ticketList.add(getTicket(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("something went wrong ");
         }

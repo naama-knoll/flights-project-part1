@@ -17,6 +17,7 @@ public class UsersDAO implements DAO{
             var result=stm.executeQuery("select * from Users where id="+id);
             result.next();
             user=getUser(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry can't get the user");
         }
@@ -30,6 +31,7 @@ public class UsersDAO implements DAO{
             while(result.next()){
                 userList.add(getUser(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("something went wrong ");
         }

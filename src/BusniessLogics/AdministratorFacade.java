@@ -45,6 +45,7 @@ public class AdministratorFacade extends AnonymousFacade{
             }
             return true;
         }
+        printError("adding","airline company");
         return false;
     }
 
@@ -53,6 +54,7 @@ public class AdministratorFacade extends AnonymousFacade{
         if(this.token.role==UserRole.ADMIN) {
             return super.addCustomer(customer,user);
         }
+        printError("adding","customer");
         return false;
     }
 
@@ -65,6 +67,7 @@ public class AdministratorFacade extends AnonymousFacade{
                 isAdded=administratorsDAO.add(new Administrator(administrator.id,administrator.firstName,administrator.lastName,user1.id));
                 if(!isAdded){
                     usersDAO.remove(user);
+                    printError("adding","admin");
                     return false;
                 }
                 return true;
@@ -82,6 +85,7 @@ public class AdministratorFacade extends AnonymousFacade{
                 return usersDAO.remove(user);
             }
         }
+        printError("removing","admin");
         return false;
     }
 
@@ -94,8 +98,10 @@ public class AdministratorFacade extends AnonymousFacade{
                 return usersDAO.remove(user);
             }
         }
+        printError("removing","customer");
         return false;
     }
+
     //remove airline company
     public boolean removeAirlineCompany(AirlineCompany airlineCompany){
         if(this.token.role==UserRole.ADMIN) {
@@ -105,6 +111,7 @@ public class AdministratorFacade extends AnonymousFacade{
                 return usersDAO.remove(user);
             }
         }
+        printError("removing","airline company");
         return false;
     }
 }

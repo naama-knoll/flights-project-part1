@@ -21,6 +21,7 @@ public class FlightsDAO implements DAO{
             var result=stm.executeQuery("select * from Flights where id="+id);
             result.next();
             flight=getFlight(result);
+            result.close();
         } catch (SQLException e) {
             System.out.println("sorry can't get the flight");
         }
@@ -34,6 +35,7 @@ public class FlightsDAO implements DAO{
             while(result.next()){
                 flightList.add(getFlight(result));
             }
+            result.close();
         } catch (SQLException e) {
             System.out.println("something went wrong ");
         }

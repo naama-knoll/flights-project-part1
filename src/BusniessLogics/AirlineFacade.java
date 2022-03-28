@@ -35,6 +35,7 @@ public class AirlineFacade extends AnonymousFacade {
             airlineCompaniesDAO.update(airlineCompany);
             return true;
         }
+        printError("updating","airline company");
         return false;
     }
 
@@ -44,6 +45,7 @@ public class AirlineFacade extends AnonymousFacade {
             flightsDAO.add(flight);
             return true;
         }
+        printError("adding","flight");
         return false;
     }
 
@@ -53,6 +55,7 @@ public class AirlineFacade extends AnonymousFacade {
             flightsDAO.update(flight);
             return true;
         }
+        printError("updating","flight");
         return false;
     }
 
@@ -83,6 +86,7 @@ public class AirlineFacade extends AnonymousFacade {
             flightsDAO.remove(flight);
             return true;
         }
+        printError("removing","flight");
         return false;
     }
 }

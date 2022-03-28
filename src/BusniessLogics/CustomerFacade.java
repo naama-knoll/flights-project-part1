@@ -30,6 +30,7 @@ public class CustomerFacade extends AnonymousFacade{
             customerDAO.update(customer);
             return true;
         }
+        printError("updating","customer");
         return false;
     }
     //buy a ticket
@@ -40,6 +41,7 @@ public class CustomerFacade extends AnonymousFacade{
             //update remaining tickets -1 if exists
             flightsDAO.updateRemainingTicketsMinus(ticket.flightId);
         }
+        printError("adding","ticket");
         return false;
     }
     //remove ticket
@@ -50,6 +52,7 @@ public class CustomerFacade extends AnonymousFacade{
             flightsDAO.updateRemainingTicketsPlus(ticket.flightId);
             return true;
         }
+        printError("removing","ticket");
         return false;
     }
     //get all tickets of the customer

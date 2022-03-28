@@ -10,6 +10,22 @@ public class Customer implements POCO{
     public long userId;
 
     public Customer(long id, String firstName, String lastName, String address, String phoneNumber, String creditCardNumber, long userId) {
+        if(!phoneNumber.matches("[0-9]+")) {
+            try {
+                throw new Exception("phone number must contains only digits");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            phoneNumber = null;
+        }
+        if(!creditCardNumber.matches("[0-9]+")) {
+            try {
+                throw new Exception("credit card number number must contains only digits");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            creditCardNumber = null;
+        }
         this.id=id;
         this.firstName = firstName;
         this.lastName = lastName;
