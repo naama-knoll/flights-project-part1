@@ -21,6 +21,9 @@ public class AirlineCompaniesDAO implements DAO{
             result.close();
         } catch (SQLException e) {
             System.out.println("sorry, can't get this airline company");
+        }catch (Exception e1){
+            e1.getMessage();
+            System.out.println("something was wrong with the close");
         }
         return airlineCompany;
     }
@@ -35,6 +38,9 @@ public class AirlineCompaniesDAO implements DAO{
             result.close();
         } catch (SQLException e) {
             System.out.println("sorry , some problem occurred");
+        } catch (Exception e1){
+            e1.getMessage();
+            System.out.println("something was wrong with the close");
         }
         return airlineCompanyList;    }
     //add new airline company

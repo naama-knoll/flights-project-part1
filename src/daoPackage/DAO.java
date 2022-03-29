@@ -17,8 +17,8 @@ public interface DAO<T> {
     public boolean remove(T t);
     public boolean update(T t);
 
-    //close all the connections
-    public default void close(){
+    //close all the connections should be called from the main
+    public default void closeAll(){
         try {
             connection.close();
             stm.close();

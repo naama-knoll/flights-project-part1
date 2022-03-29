@@ -20,6 +20,9 @@ public class UsersDAO implements DAO{
             result.close();
         } catch (SQLException e) {
             System.out.println("sorry can't get the user");
+        }catch (Exception e1){
+            e1.getMessage();
+            System.out.println("something was wrong with the close");
         }
         return user;
     }
@@ -34,6 +37,9 @@ public class UsersDAO implements DAO{
             result.close();
         } catch (SQLException e) {
             System.out.println("something went wrong ");
+        }catch (Exception e1){
+            e1.getMessage();
+            System.out.println("something was wrong with the close");
         }
         return userList;
     }
